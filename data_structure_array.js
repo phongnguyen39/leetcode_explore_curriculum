@@ -7,11 +7,11 @@
 
 let findPivot=(num)=>{
     
-    for(let i = 1; i < num.length; i++) {
+    for(let i = 0; i < num.length; i++) {
         
-        let rightIndexStart = i + 1;    
+        // let rightIndexStart = i+1;    
         let leftSlice = num.slice(0, i)
-        let rightSlice = num.slice(rightIndexStart,num.length)
+        let rightSlice = num.slice(0,num.length)
         
         if(leftSlice.length == 0 || rightSlice.length ==0) {
             continue;
@@ -22,10 +22,10 @@ let findPivot=(num)=>{
         let sumRight = rightSlice.reduce((a,b)=> a+b);
         console.log(sumLeft, sumRight)
         
-        // if(sumLeft == sumRight) {
-        //     console.log(i);
-        //     return i;
-        // }
+        if(sumLeft == sumRight) {
+            console.log(i);
+            return i;
+        }
 
     }
 
@@ -33,7 +33,7 @@ let findPivot=(num)=>{
     return -1;
 
 }
-// findPivot([1,7,3,6,5,6])
+findPivot([1,7,3,6,5,6])  // 3
 // findPivot([1,2,3])
 // findPivot([-1000,1,1000,-2000])
 // findPivot([-1,-1,-1,-1,-1,-1])
